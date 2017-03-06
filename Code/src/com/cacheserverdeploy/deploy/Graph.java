@@ -5,46 +5,34 @@ package com.cacheserverdeploy.deploy;
 * Introduction 图类
 */
 public class Graph {
-	//通过边结点来构建一个图
-	void creatGraph(EdgeElement d[]) {
-	} 
-	//返回图的顶点数 
-	int vertices() {
-		return 0;
-	}    
-	//返回图的边数  
-    int edges() {
-		return 0;
-	} 
-    //从图中查找一条边(i,j)是否存在  
-    boolean find(int i,int j) {
-		return false;
-	} 
-    //像图中插入一条边 theEdge 
-    void putEdge(EdgeElement theEdge) {
-	} 
-    //从图中删除一条边  
-    void removeEdge(int i,int j) {
-	}      
-  //返回顶点i的度
-    int degree(int i) {
-		return 0;
-	}  
-    //返回顶点i的入度
-    int inDegree(int i) {
-		return 0;
+	int vexNum,arcNum,costnode;//节点数目，链路数目，消费节点数目
+	int []vex;//节点信息
+	EdgeElement [][]arcs;//邻接矩阵
+	int deployCost;//部署成本
+	public Graph(){}//空构造函数
+	public void initalVAC(String[]vexinfo){//初始化节点数目，链路数目，消费节点数目
+		this.vexNum=Integer.parseInt(vexinfo[0]);
+		this.arcNum=Integer.parseInt(vexinfo[1]);
+		this.costnode=Integer.parseInt(vexinfo[2]);
 	}
-    //返回顶点i的出度
-    int outDegree(int i) {
-		return 0;
-	}     
-    //以图的顶点集和边集的形式输出一个图
-    void output() {
-	}       
-    //从顶点v开始深度优先搜索整幅图
-    void depthFirstSearch(int v) {
-	}   
-    //从顶点v开始广度优先搜索整幅图
-    void breadthFirstSearch(int v) {
-	}         
+	public void createGraph(String[] graphContent){//初始化图
+		this.initalVAC(graphContent[0].split(" "));
+		this.deployCost=Integer.parseInt(graphContent[2]);//初始化部署成本
+		
+		vex=new int[vexNum];//初始化节点信息
+		int i=0;
+		for(i=0;i<vexNum;i++)//节点赋值
+			vex[i]=i;
+		
+		arcs=new EdgeElement[vexNum][vexNum];//初始化边信息
+		for(i=4;"".equals(graphContent[i]);i++){//边赋值
+			String[]arcsInfo=graphContent[i].split("");
+			int f,e,b,p;
+			f=Integer.parseInt(arcsInfo[0]);
+			e=Integer.parseInt(arcsInfo[1]);
+			b=Integer.parseInt(arcsInfo[2]);
+			p=Integer.parseInt(arcsInfo[3]);
+			
+		}
+	}
 }

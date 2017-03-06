@@ -6,11 +6,11 @@ import com.filetool.util.LogUtil;
 
 /**
  * 
- * ¹¤¾ßÈë¿Ú
+ * å·¥å…·å…¥å£
  * 
- * @version  [°æ±¾ºÅ, 2017-1-9]
- * @see  [Ïà¹ØÀà/·½·¨]
- * @since  [²úÆ·/Ä£¿é°æ±¾]
+ * @version  [ç‰ˆæœ¬å·, 2017-1-9]
+ * @see  [ç›¸å…³ç±»/æ–¹æ³•]
+ * @since  [äº§å“/æ¨¡å—ç‰ˆæœ¬]
  */
 public class Main
 {

@@ -4,11 +4,11 @@ package com.cacheserverdeploy.deploy;
 public class Deploy
 {
     /**
-     * 你需要完成的入口
-     * <功能详细描述>
-     * @param graphContent 用例信息文件
-     * @return [参数说明] 输出结果信息
-     * @see [类、类#方法、类#成员]
+     * 浣犻渶瑕佸畬鎴愮殑鍏ュ彛
+     * <鍔熻兘璇︾粏鎻忚堪>
+     * @param graphContent 鐢ㄤ緥淇℃伅鏂囦欢
+     * @return [鍙傛暟璇存槑] 杈撳嚭缁撴灉淇℃伅
+     * @see [绫汇�佺被#鏂规硶銆佺被#鎴愬憳]
      */
     public static String[] deployServer(String[] graphContent)
     {

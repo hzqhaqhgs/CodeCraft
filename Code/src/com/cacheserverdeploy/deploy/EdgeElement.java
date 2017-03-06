@@ -5,14 +5,12 @@ package com.cacheserverdeploy.deploy;
 * Introduction  边接口
 */
 public class EdgeElement {
-	int fvex;//入口
-	int evex;//出口
 	Weight weight;//权重ֵ
-	public EdgeElement(int v1,int v2,int bandwidth,int percost){
-		this.fvex=v1;
-		this.evex=v2;
-		weight.bandwidth=bandwidth;
-		weight.percost=percost;
-	}
+//	public EdgeElement(int v1,int v2,int bandwidth,int percost){
+//		this.fvex=v1;
+//		this.evex=v2;
+//		weight.bandwidth=bandwidth;
+//		weight.percost=percost;
+//	}
 }
 
