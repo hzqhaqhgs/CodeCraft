@@ -61,8 +61,8 @@ public class Graph {
 		initalCostNode(tag,graphContent);//初始化消费节点
 	}
 	public void printArcs(){
-//		  for(int i=0;i<cnode.length;i++)
-//			   System.out.println(cnode[i].nodeid+" "+cnode[i].vexid+" "+cnode[i].need);
+		  for(int i=0;i<cnode.length;i++)
+			   System.out.println(cnode[i].nodeid+" "+cnode[i].vexid+" "+cnode[i].need);
 //		for(int i=0;i<vexNum;i++){
 //			for(int j=0;j<vexNum;j++)
 //				if(arcs[i][j].bandwidth!=-1)

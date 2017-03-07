@@ -5,8 +5,8 @@ package com.cacheserverdeploy.deploy;
 * Introduction  边类
 */
 public class EdgeElement {
-	public int bandwidth;//总带宽
-	public int percost;//单位价格
+	int bandwidth;//总带宽
+	int percost;//单位价格
 	public EdgeElement(){
 		bandwidth=-1;
 		percost=-1;
