@@ -31,8 +31,8 @@ public class Graph {
 			e=Integer.parseInt(arcsInfo[1]);
 			b=Integer.parseInt(arcsInfo[2]);
 			p=Integer.parseInt(arcsInfo[3]);
-			this.arcs[f][e].bandwidth=b;
-			this.arcs[f][e].percost=p;	
+			this.arcs[f][e].bandwidth=this.arcs[e][f].bandwidth=b;
+			this.arcs[f][e].percost=this.arcs[e][f].percost=p;	
 		}
 		return i;
 	}
@@ -58,16 +58,28 @@ public class Graph {
 		for(int i=0;i<vexNum;i++)//节点赋值
 			vex[i]=i;	
 		int tag=this.initalArcs(graphContent);//初始化边
-		initalCostNode(tag,graphContent);//初始化消费节点
+		this.initalCostNode(tag,graphContent);//初始化消费节点
 	}
 	public void printArcs(){
-		  for(int i=0;i<cnode.length;i++)
-			   System.out.println(cnode[i].nodeid+" "+cnode[i].vexid+" "+cnode[i].need);
+//		  for(int i=0;i<cnode.length;i++)
+//			   System.out.println(cnode[i].nodeid+" "+cnode[i].vexid+" "+cnode[i].need);
 //		for(int i=0;i<vexNum;i++){
 //			for(int j=0;j<vexNum;j++)
 //				if(arcs[i][j].bandwidth!=-1)
 //					{System.out.println(i+" "+j+" "+arcs[i][j].bandwidth+"  "+arcs[i][j].percost+", ");}
 //		}
 	
+	}
+	
+	
+	
+	public String[] getResult(){
+		String []result=new String[cnode.length+2];
+		result[0]=String.valueOf(cnode.length);
+		result[1]="\r\n";
+		for(int i=0;i<cnode.length;i++)
+			result[i+2]=String.valueOf(cnode[i].vexid)+" "+String.valueOf(cnode[i].nodeid)+" "+String.valueOf(cnode[i].need);
+		return result;
+		
 	}
 }

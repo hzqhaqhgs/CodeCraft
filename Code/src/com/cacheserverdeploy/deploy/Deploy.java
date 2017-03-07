@@ -16,7 +16,8 @@ public class Deploy
     	Graph test=new Graph();
     	test.createGraph(graphContent);
     	test.printArcs();
-        return new String[]{"17","\r\n","0 8 0 20"};
+    	String[] result=test.getResult();
+        return result;
     }
 
 }
