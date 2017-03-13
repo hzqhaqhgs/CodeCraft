@@ -11,6 +11,8 @@ public class Graph {
 	int deployCost;//部署成本
 	CostNode []cnode;
 	public Graph(){}//空构造函数
+	int []degree;//每个节点的度数
+	int []server;//服务器
 	public void initalVAC(String[]vexinfo){//初始化节点数目，链路数目，消费节点数目
 		this.vexNum=Integer.parseInt(vexinfo[0]);
 		this.arcNum=Integer.parseInt(vexinfo[1]);
@@ -60,7 +62,7 @@ public class Graph {
 		int tag=this.initalArcs(graphContent);//初始化边
 		this.initalCostNode(tag,graphContent);//初始化消费节点
 	}
-	public void printArcs(){
+	public void printArcs(){///遍历图
 //		  for(int i=0;i<cnode.length;i++)
 //			   System.out.println(cnode[i].nodeid+" "+cnode[i].vexid+" "+cnode[i].need);
 //		for(int i=0;i<vexNum;i++){
@@ -70,16 +72,55 @@ public class Graph {
 //		}
 	
 	}
-	
-	
-	
-	public String[] getResult(){
+	public String[] getResult(){///原case输出
 		String []result=new String[cnode.length+2];
 		result[0]=String.valueOf(cnode.length);
-		result[1]="\r\n";
+		result[1]="";
 		for(int i=0;i<cnode.length;i++)
 			result[i+2]=String.valueOf(cnode[i].vexid)+" "+String.valueOf(cnode[i].nodeid)+" "+String.valueOf(cnode[i].need);
 		return result;
 		
+	}
+	public void getDegree(){///获取每个节点的度
+		degree=new int [vexNum];
+		for(int i=0;i<vexNum;i++)
+			for(int j=0;j<vexNum;j++)
+				if(arcs[i][j].bandwidth!=-1)
+					degree[i]++;
+//		for(int i=0;i<vexNum;i++)
+//			System.out.print(degree[i]+", ");
+		getServer();
+	}
+	public void getServer(){///获取服务器部署位置
+		int []temp=new int [vexNum];
+		temp=degree;
+		int sum=0;
+		int max=getMax(temp);//第一大
+		for(int i=0;i<temp.length;i++)
+			if(temp[i]==max){
+				sum++;
+				temp[i]=-1;
+			}
+		max=getMax(temp);//第二大
+		for(int i=0;i<temp.length;i++)
+			if(temp[i]==max){
+				sum++;
+				temp[i]=-1;
+			}
+		server=new int[sum];//初始化server
+		int j=0;
+		for(int i=0;i<temp.length;i++)
+			if(temp[i]==-1)
+				{server[j]=i;j++;}
+		for(int i=0;i<server.length;i++)
+			System.out.println(server[i]);
+	}
+	public int getMax(int []temp){//获取最大的度
+		int max;
+		max=temp[0];
+		for(int i=1;i<temp.length;i++)
+			if(max<temp[i])
+				max=temp[i];
+		return max;
 	}
 }

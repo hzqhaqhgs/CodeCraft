@@ -17,6 +17,7 @@ public class Deploy
     	test.createGraph(graphContent);
     	test.printArcs();
     	String[] result=test.getResult();
+ //   	test.getDegree();
         return result;
     }
 
